@@ -2,11 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
 
-
 const general = localFont({
   src: "../public/fonts/GeneralSans-Variable.ttf",
 });
-
 
 export const metadata: Metadata = {
   title: "Thilina R.",
