@@ -58,6 +58,8 @@ const Card = () => {
               <a
                 href="mailto:rathnayaka3548@gmail.com"
                 className="mb-1 text-sm"
+                target="_blank"
+                rel="noreferrer"
               >
                 <motion.div
                   className=""
@@ -76,6 +78,8 @@ const Card = () => {
               <a
                 href="https://www.instagram.com/morningstar_126/"
                 className=" mb-1 text-sm"
+                target="_blank"
+                rel="noreferrer"
               >
                 <motion.div
                   className=" "
@@ -94,6 +98,8 @@ const Card = () => {
               <a
                 href="https://wa.me/718913548?text=Message%20Via%20ID"
                 className=" mb-1 text-sm"
+                target="_blank"
+                rel="noreferrer"
               >
                 <motion.div
                   className=" "
