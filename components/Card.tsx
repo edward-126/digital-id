@@ -28,8 +28,9 @@ const Card = () => {
           <motion.div
             className=" overflow-hidden relative h-fit w-fit rounded-2xl shadow-lg bg-white"
             whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            drag
+            dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
           >
             <div className=" absolute w-fit rotate-90 my-24 -mx-12 h-fit top-0 left-0">
               <h1 className="font-medium uppercase select-none tracking-widest">
@@ -42,6 +43,7 @@ const Card = () => {
                   src={img.src}
                   alt=""
                   className=" w-full h-auto select-none"
+                  style={{ userSelect: "none", pointerEvents: "none" }}
                 />
               </div>
             </div>
@@ -53,39 +55,59 @@ const Card = () => {
                 </h1>
               </div>
 
-              <div className=" mb-1 text-sm">
-                <p className="inline-block tracking-wider font-medium">MAIL </p>
-                <p className=" mx-2 inline-block font-medium"> | </p>
-                <a
-                  href="mailto:rathnayaka3548@gmail.com"
-                  className="inline-block"
+              <a
+                href="mailto:rathnayaka3548@gmail.com"
+                className="mb-1 text-sm"
+              >
+                <motion.div
+                  className=""
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  whileTap={{ scale: 0.95 }}
                 >
+                  <p className="inline-block tracking-wider font-medium">
+                    MAIL{" "}
+                  </p>
+                  <p className=" mx-2 inline-block font-medium"> | </p>
                   rathnayaka3548@gmail.com
-                </a>
-              </div>
+                </motion.div>
+              </a>
 
-              <div className=" mb-1 text-sm">
-                <p className="inline-block tracking-wider font-medium">
-                  INSTAGRAM{" "}
-                </p>
-                <p className=" mx-2 inline-block font-medium"> | </p>
-                <a
-                  href="https://www.instagram.com/morningstar_126/"
-                  className=" inline-block"
+              <a
+                href="https://www.instagram.com/morningstar_126/"
+                className=" mb-1 text-sm"
+              >
+                <motion.div
+                  className=" "
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  whileTap={{ scale: 0.95 }}
                 >
+                  <p className="inline-block tracking-wider font-medium">
+                    INSTAGRAM{" "}
+                  </p>
+                  <p className=" mx-2 inline-block font-medium"> | </p>
                   @morningstar_126
-                </a>
-              </div>
+                </motion.div>
+              </a>
 
-              <div className=" mb-1 text-sm">
-                <p className="inline-block tracking-wider font-medium">
-                  WHATSAPP{" "}
-                </p>
-                <p className=" mx-2 inline-block font-medium"> | </p>
-                <a href="tel:+94718913548" className=" inline-block">
+              <a
+                href="https://wa.me/718913548?text=Message%20Via%20ID"
+                className=" mb-1 text-sm"
+              >
+                <motion.div
+                  className=" "
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <p className="inline-block tracking-wider font-medium">
+                    WHATSAPP{" "}
+                  </p>
+                  <p className=" mx-2 inline-block font-medium"> | </p>
                   +94 71 891 3548
-                </a>
-              </div>
+                </motion.div>
+              </a>
             </div>
           </motion.div>
         </motion.div>
