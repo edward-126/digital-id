@@ -36,24 +36,24 @@ const Card = () => {
           {MYDATA.map((item, idx) => (
             <motion.div
               key={idx}
-              className=" relative h-fit w-fit overflow-hidden rounded-xl bg-white shadow-lg"
+              className=" relative h-fit w-fit overflow-hidden rounded-xl  bg-[url('/bg.svg')] bg-cover shadow-lg"
               drag
               dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 1.03 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
             >
-              <div className=" absolute left-0 top-0 m-4 h-fit w-fit">
+              <div className=" absolute left-0 top-0 ml-[30px] mt-[31.5px] h-fit w-fit">
                 <Link href={item.website} target="_blank" rel="noreferrer">
                   <Icons.logo className=" h-12 select-none stroke-black/10 stroke-[50] transition-all duration-300 ease-in-out hover:stroke-black/50" />
                 </Link>
               </div>
               <div className=" w-72">
                 <div className="aspect-square overflow-hidden">
-                  <Icons.pic className=" h-auto w-full select-none" />
+                  {/* <Icons.pic className=" h-auto w-full select-none" /> */}
                 </div>
               </div>
-              <div className=" flex flex-col gap-y-3 p-5 pt-1">
+              <div className=" flex flex-col gap-y-3 p-6 pt-1">
                 <div className="relative w-fit">
                   <h2 className=" -mb-1 text-xs font-medium opacity-40">
                     {item.title}
