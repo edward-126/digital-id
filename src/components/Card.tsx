@@ -61,13 +61,12 @@ const Card = () => {
           animate="visible"
           transition={{ duration: 1 }}
           variants={blurVariant}
-          className="bg-white"
         >
           {MYDATA.map((item, idx) => (
             <motion.div
               key={idx}
               className={cn(
-                "relative flex h-[450px] w-[300px] flex-col items-center justify-between overflow-hidden rounded-xl border border-dashed border-primary/15",
+                "relative flex h-[450px] w-[300px] flex-col items-center justify-between overflow-hidden rounded-xl border border-dashed border-primary/15 bg-white",
                 GeistMono.className,
               )}
               drag
