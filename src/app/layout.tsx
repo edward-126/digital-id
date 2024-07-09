@@ -1,3 +1,5 @@
+import { Analytics } from "@vercel/analytics/react";
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 
@@ -31,6 +33,7 @@ export default function RootLayout({
           <div className="flex-1 flex-grow">{children}</div>
           <Footer />
         </main>
+        <Analytics />
       </body>
     </html>
   );
