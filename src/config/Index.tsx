@@ -6,7 +6,7 @@ export const MYDATA = [
     whatsapp: "718913548",
     instagram: "its_thili.rathnayaka",
     email: "rathnayaka3548@gmail.com",
-    websiteDisplay: "its-thilina.vercel.app",
-    website: "https://its-thilina.vercel.app/",
+    websiteDisplay: "thilina.dev",
+    website: "https://thilina.dev/",
   },
 ];
