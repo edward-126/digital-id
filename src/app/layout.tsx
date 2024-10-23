@@ -2,14 +2,15 @@ import { Analytics } from "@vercel/analytics/react";
 
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { GeistSans } from "geist/font/sans";
 
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Footer from "@/components/Footer";
 
-const general = localFont({
-  src: "../../public/fonts/GeneralSans-Variable.ttf",
-});
+// const general = localFont({
+//   src: "../../public/fonts/GeneralSans-Variable.ttf",
+// });
 
 export const metadata: Metadata = {
   title: "Thilina R.",
@@ -25,8 +26,8 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "relative h-full bg-neutral-50/50 font-sans antialiased",
-          general.className,
+          "relative h-full bg-background text-foreground antialiased",
+          GeistSans.className,
         )}
       >
         <main className="relative flex min-h-screen flex-col">

@@ -1,12 +1,10 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-
-import Link from "next/link";
-import { Icons } from "./Icons";
+import Image from "next/image";
 import { MYDATA } from "@/config/Index";
-import { GeistMono } from "geist/font/mono";
-import { cn } from "@/lib/utils";
+import Link from "next/link";
+import { ArrowRight, AtSign, Code, MapPin, Search } from "lucide-react";
 
 const cardVariant = {
   hidden: { opacity: 0 },
@@ -61,14 +59,12 @@ const Card = () => {
           animate="visible"
           transition={{ duration: 1 }}
           variants={blurVariant}
+          className="w-full px-3 sm:w-[450px]"
         >
           {MYDATA.map((item, idx) => (
             <motion.div
+              className="flex h-auto w-full flex-col gap-4 rounded-lg border border-border p-4 px-[1.1rem] shadow-sm"
               key={idx}
-              className={cn(
-                "relative flex h-[450px] w-[300px] flex-col items-center justify-between overflow-hidden rounded-xl border border-dashed border-primary/15 bg-white",
-                GeistMono.className,
-              )}
               drag
               dragConstraints={{ left: 0, right: 0, top: 0, bottom: 0 }}
               whileHover={{ scale: 1.02 }}
@@ -80,55 +76,80 @@ const Card = () => {
                 duration: 1,
               }}
             >
-              <div className="h-[50px] w-full px-[14px] pt-[13px]">
-                <div className="flex h-fit w-full items-center justify-between">
-                  <motion.div
-                    initial="hidden"
-                    animate="visible"
-                    transition={{ duration: 1, delay: 1 }}
-                    variants={blurVariant}
-                    className="group peer -mt-1"
-                  >
-                    <span className="text-[14px] font-semibold transition-all duration-300 ease-in-out group-hover:text-[14.5px] group-hover:font-bold">
-                      {item.name}
-                    </span>
-                  </motion.div>
+              <div className="flex items-center justify-between">
+                <p className="font-medium">Contact Information</p>
+                <small className="text-xs font-medium text-muted-foreground">
+                  {formatDate(today)}
+                </small>
+              </div>
 
-                  <motion.div
-                    initial="hidden"
-                    animate="visible"
-                    transition={{ duration: 1, delay: 1.1 }}
-                    variants={blurVariant}
-                    className="text-[10px] text-primary/50 transition-all duration-300 ease-in-out peer-hover:text-primary/0"
-                  >
-                    {item.title}
-                    <span className=""></span>
-                  </motion.div>
+              <div className="flex items-center justify-between rounded-lg border border-dashed border-border p-4 px-[1.1rem]">
+                <div className="flex items-center gap-3">
+                  <Image
+                    width={200}
+                    height={200}
+                    src="/pfp.png"
+                    alt={`Profile Image of ${item.name}`}
+                    className="size-12 rounded-full border border-border bg-primary/10"
+                  />
+                  <div className=" flex flex-col gap-0">
+                    <p className="font-medium">{item.name}</p>
+                    <small className="font-medium text-muted-foreground">
+                      {item.title}
+                    </small>
+                  </div>
+                </div>
+
+                <Link
+                  href={item.website}
+                  target="_blank"
+                  className="group/icon active:scale-[0.96]"
+                >
+                  <div className="relative overflow-hidden rounded-sm border border-border bg-primary/20 p-2">
+                    <Search className="size-4 stroke-primary transition-all duration-300 ease-in-out group-hover/icon:scale-[5.5]" />
+                    <ArrowRight className="absolute left-1/2 top-1/2 size-4 -translate-x-1/2 -translate-y-1/2 scale-0 stroke-primary transition-all duration-300 ease-in-out group-hover/icon:scale-[1]" />
+                  </div>
+                </Link>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="rounded-full border border-border p-3">
+                  <MapPin className="size-5" />
+                </div>
+                <div className=" -space-y-0.5">
+                  <span>Location</span>
+                  <p className="font-medium">{item.location}</p>
                 </div>
               </div>
-              <Icons.thili className="w-[118.35px]" />
-              <div className="h-[50px] w-full px-[14px] pb-[10px]">
-                <div className="-mb-1 flex h-full w-full items-end justify-between">
-                  <Link href={item.website} target="_blank" className="group">
-                    <motion.span
-                      initial="hidden"
-                      animate="visible"
-                      transition={{ duration: 1, delay: 1.2 }}
-                      variants={blurVariant}
-                      className="text-xs text-primary/50 transition-all duration-300 ease-in-out group-hover:font-medium group-hover:text-primary/70 group-active:text-primary"
-                    >
-                      {item.websiteDisplay}
-                    </motion.span>
+
+              <div className="flex items-center gap-3">
+                <div className="rounded-full border border-border p-3">
+                  <Code className="size-5" />
+                </div>
+                <div className=" -space-y-0.5">
+                  <span>Specialty</span>
+                  <div className="flex items-center gap-1.5">
+                    {item.specialties.map((specialty, idx) => (
+                      <p className="font-medium" key={idx}>
+                        {specialty}
+                        {idx < item.specialties.length - 1 && ","}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="rounded-full border border-border p-3">
+                  <AtSign className="size-5" />
+                </div>
+                <div className=" -space-y-0.5">
+                  <span>Email Address</span>
+                  <Link href={`mailto:${item.email}`} target="_blank">
+                    <p className="font-medium transition-all duration-300 ease-in-out hover:text-primary">
+                      {item.email}
+                    </p>
                   </Link>
-                  <motion.span
-                    initial="hidden"
-                    animate="visible"
-                    transition={{ duration: 1, delay: 1.3 }}
-                    variants={blurVariant}
-                    className="text-xs text-primary/50"
-                  >
-                    {formatDate(today)}
-                  </motion.span>
                 </div>
               </div>
             </motion.div>
